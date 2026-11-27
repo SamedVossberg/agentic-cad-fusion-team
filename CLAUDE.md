@@ -1,6 +1,6 @@
 # Fusion design team — shared rules (every agent follows these)
 
-These are the framework rules of fusion-crew. Project-specific rules (merge gates, decision priorities, units, scale
+These are the framework rules of Agentic CAD Fusion Team. Project-specific rules (merge gates, decision priorities, units, scale
 hints, standing user decisions) live in `project/PROJECT.md`, imported here. Where PROJECT.md is more specific, it wins.
 If `project/` does not exist yet, the only valid action is `/setup-project`.
 

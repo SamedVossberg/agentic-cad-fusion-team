@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Ticket state machine + board generator for the Fusion agent team (fusion-crew).
+# Ticket state machine + board generator for the Fusion agent team (Agentic CAD Fusion Team).
 # All ticket data lives under project/ (work/, log/DESIGN_LOG.md, BOARD.md).
 #
 #   scripts/ticket.sh new "<title>" [--depends T001,T002] [--priority high|normal|low]

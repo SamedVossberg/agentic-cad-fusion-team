@@ -1,6 +1,6 @@
-# fusion-crew
+# Agentic CAD Fusion Team
 
-**An AI design team for Autodesk Fusion.** A crew of Claude Code agents plans, builds, reviews and merges changes to
+**An AI design team for Autodesk Fusion.** A team of Claude Code agents plans, builds, reviews and merges changes to
 your Fusion design in cloud sessions through the Fusion Compute MCP. Your own desktop Fusion stays free the whole time.
 
 ![Claude Code agent teams](https://img.shields.io/badge/Claude%20Code-agent%20teams-d97757)
@@ -17,7 +17,7 @@ back.
 
 ```
 /new-ticket Make the motor mount 2 mm thinner, keep the screw pattern
-/run-team                        # the crew works until the board is empty
+/run-team                        # the team works until the board is empty
 /board                           # status at any time
 ```
 
@@ -26,7 +26,7 @@ back.
 ## Why this approach
 
 ### 1. Git for CAD: branches, replayable diffs, verified merges
-Fusion cannot merge parallel edits to one document. fusion-crew handles your design the way you'd handle a repository:
+Fusion cannot merge parallel edits to one document. Agentic CAD Fusion Team handles your design the way you'd handle a repository:
 
 - **MAIN** is the joint version. Only merge tasks write to it, and only after approval.
 - **Every change is a script.** A worker copies MAIN at a recorded base version into a WIP folder and runs one
@@ -87,7 +87,7 @@ a one-line change (see [Make it yours](#make-it-yours)).
 ### 5. Cloud compute in parallel, with your desktop free
 - The **Fusion Compute MCP** runs headless Fusion in Autodesk's cloud. Two sessions run in parallel, so the reviewer can
   test ticket 3 while a worker builds ticket 4.
-- **Verified: your desktop Fusion does not count against the cloud sessions.** Keep modelling locally while the crew
+- **Verified: your desktop Fusion does not count against the cloud sessions.** Keep modelling locally while the team
   works. If you save MAIN yourself, the team treats that version as intended and rebases onto it.
 - A **slot lease system** (`scripts/fusion-slot.sh`) shares the scarce sessions fairly:
   - priority queue: reviewer > merge > worker > planner, so finished work flows out first
@@ -201,7 +201,7 @@ stateDiagram-v2
 
 **Set up**
 ```bash
-git clone https://github.com/SamedVossberg/fusion-crew.git my-design
+git clone https://github.com/SamedVossberg/agentic-cad-fusion-team.git my-design
 cd my-design
 claude
 ```
@@ -210,7 +210,7 @@ Then, in Claude Code:
 2. `/setup-project` interviews you (where MAIN lives, fabrication rules, constraints, merge gates). It creates `project/`
    from the templates, runs a capability check on a throw-away copy and takes the first snapshot of MAIN.
 3. `/new-ticket <what you want changed>` creates a ticket (one short intake round).
-4. `/run-team` lets the crew work until no ticket is open.
+4. `/run-team` lets the team work until no ticket is open.
 5. `/board` shows tickets, slot usage and the latest log lines.
 
 **Watch it work**
@@ -223,7 +223,7 @@ Then, in Claude Code:
 
 ## Repository layout
 ```
-fusion-crew/
+agentic-cad-fusion-team/
 ├── CLAUDE.md                  # shared protocol for every agent (imports project/PROJECT.md)
 ├── .claude/
 │   ├── agents/                # planner.md · worker.md · reviewer.md — model + effort per role
@@ -288,7 +288,7 @@ scripting API and an MCP server.
   MCP allows 2 concurrent sessions per Autodesk user, 1 h per session, and an auto-stop after 15 min idle; starts may
   queue. The protocol is built around these limits.
 - **Thoroughness costs tokens.** Planner and reviewer at `xhigh` are not cheap, and a ticket with 2–3 review rounds is a
-  substantial run. The crew is worth it where correctness matters more than speed.
+  substantial run. The team is worth it where correctness matters more than speed.
 - **Your machine runs the team.** Fusion runs in the cloud, but the Claude Code session runs on your computer and has to
   stay running.
 - **Report-file writes.** Claude Code sometimes refuses a teammate's write of a report file. `/run-team` asks once per
