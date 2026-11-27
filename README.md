@@ -238,7 +238,7 @@ fusion-crew/
 │   ├── diff-inventory.py      # inventory diff + merge verification (--check)
 │   └── fusion/                # inventory.ts, save-result.py, snapshot-md.py
 ├── fusion/capabilities.md     # verified Fusion Compute MCP knowledge (shared across projects)
-├── templates/project/         # skeleton that /setup-project copies to project/
+├── templates/project-skeleton/  # blank forms (placeholders only) that /setup-project copies to project/
 └── project/                   # YOUR design — git-ignored, never part of this repo
     ├── PROJECT.md             # merge gates, priorities, units, standing decisions
     ├── spec/                  # requirements, parameters, backlog

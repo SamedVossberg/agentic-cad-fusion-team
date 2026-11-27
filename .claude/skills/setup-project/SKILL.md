@@ -1,6 +1,6 @@
 ---
 name: setup-project
-description: Connect the Fusion design team to a design — interview the user, create project/ from templates/project/, run the Phase 0 capability check and take the first MAIN snapshot.
+description: Connect the Fusion design team to a design — interview the user, create project/ from templates/project-skeleton/, run the Phase 0 capability check and take the first MAIN snapshot.
 disable-model-invocation: true
 ---
 You are the **lead**, connecting the team to a Fusion design. Follow CLAUDE.md. Arguments (optional design name or notes): $ARGUMENTS
@@ -20,7 +20,7 @@ You are the **lead**, connecting the team to a Fusion design. Follow CLAUDE.md. 
 Also ask for a verbatim statement of design intent; quote it in requirements.md.
 
 ## 3. Create project/
-`mkdir -p project && cp -Rn templates/project/. project/` (`-n`: never overwrite). Fill `project/PROJECT.md` and `project/spec/requirements.md` from the answers: number every requirement (R<n>.<m>) so plans, reviews and merge gates can cite it. If the user gave an envelope limit, add `"env": {"FUSION_GROWTH_GATE_MM": "<mm>"}` to `.claude/settings.local.json` (create or merge; never touch `.claude/settings.json` for project values).
+`mkdir -p project && cp -Rn templates/project-skeleton/. project/` (`-n`: never overwrite). Fill `project/PROJECT.md` and `project/spec/requirements.md` from the answers: number every requirement (R<n>.<m>) so plans, reviews and merge gates can cite it. If the user gave an envelope limit, add `"env": {"FUSION_GROWTH_GATE_MM": "<mm>"}` to `.claude/settings.local.json` (create or merge; never touch `.claude/settings.json` for project values).
 Ask whether `project/` should become its own private git repository (`git -C project init`). The framework repo ignores `project/`.
 
 ## 4. Phase 0 — capability check (one Fusion slot)

@@ -382,7 +382,7 @@ def main():
         die("usage: ticket.sh new|set|list|open|deps|show|states …  (see header of scripts/ticket.sh)")
     cmd, argv = sys.argv[1], sys.argv[2:]
     if cmd != "states" and not os.path.isdir(PROJECT):
-        die("project/ not found: run /setup-project first (it creates project/ from templates/project/)")
+        die("project/ not found: run /setup-project first (it creates project/ from templates/project-skeleton/)")
     {"new": cmd_new, "set": cmd_set, "list": cmd_list, "open": lambda a: cmd_list(a, True),
      "deps": cmd_deps, "show": cmd_show, "states": cmd_states}.get(cmd, lambda a: die(f"unknown command {cmd}"))(argv)
 
