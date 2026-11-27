@@ -1,0 +1,35 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "teammateMode": "in-process",
+  "enabledMcpjsonServers": ["fusion-cloud"],
+  "permissions": {
+    "allow": [
+      "mcp__fusion-cloud__*",
+      "Bash(scripts/*)",
+      "Bash(./scripts/*)",
+      "Bash(bash scripts/*)",
+      "Bash(python3 scripts/*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Read(/**)",
+      "Edit(/**)",
+      "Write(/**)"
+    ]
+  },
+  "hooks": {
+    "TaskCreated": [
+      { "hooks": [ { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/task-created.sh", "timeout": 30 } ] }
+    ],
+    "TaskCompleted": [
+      { "hooks": [ { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/task-completed.sh", "timeout": 60 } ] }
+    ],
+    "TeammateIdle": [
+      { "hooks": [ { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/teammate-idle.sh", "timeout": 30 } ] }
+    ]
+  }
+}

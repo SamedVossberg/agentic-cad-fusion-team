@@ -1,0 +1,39 @@
+# ── Your project ────────────────────────────────────────────────────────────────
+# Everything about a concrete design lives in project/ (requirements, tickets, plans,
+# reviews, logs, snapshots, Fusion URNs). It is never part of the framework repo.
+# Tip: version it separately with `git -C project init` (private repo).
+/project/
+
+# Safety net for the flat layout of older workspaces (pre-project/ layout)
+/spec/
+/work/
+/log/
+/BOARD.md
+/fusion/documents.md
+/fusion/notes.md
+/fusion/snapshot/
+
+# CAD data and exports
+*.f3d
+*.f3z
+*.step
+*.stp
+*.stl
+*.3mf
+*.iges
+*.igs
+*.obj
+
+# ── Runtime state ───────────────────────────────────────────────────────────────
+/.fusion-slots/
+
+# ── Per-user Claude Code settings ───────────────────────────────────────────────
+.claude/settings.local.json
+CLAUDE.local.md
+
+# ── OS / editor ─────────────────────────────────────────────────────────────────
+.DS_Store
+.qodo/
+.vscode/
+.idea/
+__pycache__/

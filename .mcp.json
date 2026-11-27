@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fusion-cloud": {
+      "type": "http",
+      "url": "https://developer.api.autodesk.com/da/v3/mcp/fusion"
+    }
+  }
+}
